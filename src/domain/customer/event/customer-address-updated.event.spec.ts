@@ -12,8 +12,11 @@ describe("Customer Address Updated Event Test", () => {
         eventDispatcher.register("CustomerAddressUpdatedEvent", eventHandler1);
 
         const customerAddressUpdatedEvent = new CustomerAddressUpdatedEvent({
+            id: "1",
             name: "Customer 1",
-            "address": "123 Main St, Springfield, IL, 62701"
+            "address": {
+                street: "Street 1"
+           }
         });
 
         eventDispatcher.notify(customerAddressUpdatedEvent);
